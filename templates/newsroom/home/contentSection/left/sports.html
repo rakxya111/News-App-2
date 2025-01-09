@@ -1,0 +1,28 @@
+<div class="single_post_content">
+    <h2><span>Games</span></h2>
+    <div class="single_post_content_left">
+      <ul class="business_catgnav">
+        <li>
+          <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{% url 'post-detail' featured_sports_post.pk %}"> <img src="{{  featured_sports_post.featured_image.url }}" alt="{{  featured_sports_post.title }}"> <span class="overlay"></span> </a>
+            <figcaption> <a href="{% url 'post-detail' featured_sports_post.pk %}">{{  featured_sports_post.title|truncatewords:15 }}</a> </figcaption>
+            <p>{{  featured_sports_post.content|truncatewords:20 }}</p>
+          </figure>
+        </li>
+      </ul>
+    </div>
+    
+    
+    <div class="single_post_content_right">
+      <ul class="spost_nav">
+       
+        {% for post in featured_sports_posts %}
+        <li>
+          <div class="media wow fadeInDown"> <a href="{% url 'post-detail' post.id %}" class="media-left"> <img alt="{{ post.title }}" src="{{ post.featured_image.url }}"> </a>
+            <div class="media-body"> <a href="{% url 'post-detail' post.id %}" class="catg_title"> {{ post.title|truncatewords:10 }}</a> </div>
+          </div>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>

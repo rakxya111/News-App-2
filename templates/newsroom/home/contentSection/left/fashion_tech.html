@@ -1,0 +1,55 @@
+<div class="fashion_technology_area">
+    <div class="fashion">
+      <div class="single_post_content">
+        <h2><span>Fashion</span></h2>
+      
+        <ul class="business_catgnav wow fadeInDown">
+          <li>
+            <figure class="bsbig_fig"> <a href="{% url 'post-detail' featured_fashion_post.pk %}" class="featured_img"> <img alt="{{ featured_fashion_post.title }}" src="{{ featured_fashion_post.featured_image.url }}" height="300px"> <span class="overlay"></span> </a>
+              <figcaption> <a href="{% url 'post-detail' featured_fashion_post.pk %}">{{ featured_fashion_post.title|truncatewords:15 }}</a> </figcaption>
+              <p>{{ featured_fashion_post.content|truncatewords:30 }}</p>
+            </figure>
+          </li>
+        </ul>
+        
+        
+        <ul class="spost_nav">
+          {% for post in featured_fashion_posts %}
+          <li>
+            <div class="media wow fadeInDown"> <a href="{% url 'post-detail' post.pk %}" class="media-left"> <img alt="{{ post.title }}" src="{{ post.featured_image.url }}"> </a>
+              <div class="media-body"> <a href="{% url 'post-detail' post.pk %}" class="catg_title">{{ post.title|truncatewords:15 }}</a> </div>
+            </div>
+          </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+    </div>
+    
+    
+    
+    <div class="technology">
+      <div class="single_post_content">
+        <h2><span>Technology</span></h2>
+        <ul class="business_catgnav">
+          <li>
+            <figure class="bsbig_fig wow fadeInDown"> <a href="{% url 'post-detail'  featured_technology_post.pk %}" class="featured_img"> <img alt="{{ featured_technology_post.title }}" src="{{ featured_technology_post.featured_image.url }}" height="300px"> <span class="overlay"></span> </a>
+              <figcaption> <a href="{% url 'post-detail'  featured_technology_post.pk %}">{{ featured_technology_post.title|truncatewords:15 }}</a> </figcaption>
+              <p>{{ featured_technology_post|truncatewords:20 }}</p>
+            </figure>
+          </li>
+        </ul>
+       
+       
+        <ul class="spost_nav">
+          {% for post in featured_technology_posts %}
+          <li>
+            <div class="media wow fadeInDown"> <a href="{% url 'post-detail' post.pk %}" class="media-left"> <img alt="{{ post.title }}" src="{{ post.featured_image.url }}"> </a>
+              <div class="media-body"> <a href="{% url 'post-detail' post.pk %}" class="catg_title"> {{ post.title|truncatewords:10 }}</a> </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>

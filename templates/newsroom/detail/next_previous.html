@@ -1,0 +1,24 @@
+<nav class="nav-slit"> 
+       
+    {% if previous_post %}
+    <a class="prev" href="{% url 'post-detail' previous_post.pk %}"> 
+    <span class="icon-wrap"><i class="fa fa-hand-o-left" aria-hidden="true"></i></span>
+    <div>
+      <h3>{{ previous_post.title|truncatewords:8 }}</h3>
+      <img src="{{ previous_post.featured_image.url }}" alt="{{ previous_post.title }}"/> 
+    </div>
+    </a> 
+    {% endif %}
+    
+    {% if next_post %}
+   
+   <a class="next" href="{% url 'post-detail' next_post.pk %}"> 
+    <span class="icon-wrap"><i class="fa fa-hand-o-right" aria-hidden="true"></i></span>
+    <div>
+      <h3>{{ next_post.title|truncatewords:8 }}</h3>
+      <img src = "{{ next_post.featured_image.url }}" alt="{{ next_post.title }}"/> 
+    </div>
+    </a> 
+    {% endif %}
+  
+  </nav>

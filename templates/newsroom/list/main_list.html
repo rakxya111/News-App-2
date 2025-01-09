@@ -1,0 +1,30 @@
+<div class="single_page">
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        
+        {% for category in categories2 %}
+        
+        <li><a href="{% url 'post-by-category' category.pk %}">{{ category.name }}</a></li>
+        
+        {% endfor %}
+        
+      </ol>
+    
+      {% for post in page_obj %}
+
+      <h1>{{ post.title }}</h1>
+    
+    <div class="post_commentbox"> 
+        <a href="#"><i class="fa fa-tags"></i>{{ post.tags.all |join:", " }}</a> 
+        <a href="#"><i class="fa fa-user"></i>{{ post.author.username|lower }}</a> 
+        <a href="#"><i class="fa fa-paste"></i>{{ post.category.name|title }}</a> 
+        <a href="#"><i class="fa fa-eye"></i>{{ post.views_count }}</a> 
+        <a href="#"><i class="fa fa-comments"></i> {{ post.comment_set.count }}</a> comments 
+    </div>
+    
+    <div class="single_page_content"> <img class="img-center" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+     <a href="{% url 'post-detail' post.pk %}"> <p>{{ post.content|truncatewords:30 }}</p></a>
+      
+    </div>
+    {% endfor %}
+</div>

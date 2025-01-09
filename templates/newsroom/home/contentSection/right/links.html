@@ -1,0 +1,9 @@
+<div class="single_sidebar wow fadeInDown">
+    <h2><span>Tags</span></h2>
+    <ul>
+      {% for tag in tags %}
+      <li><a href="{% url 'post-by-tag' tag.id %}">{{ tag.name }}</a></li>
+      {% endfor %}
+
+    </ul>
+  </div>

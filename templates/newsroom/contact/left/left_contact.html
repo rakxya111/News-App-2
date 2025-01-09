@@ -1,0 +1,29 @@
+<div class="left_content">
+    <div class="contact_area">
+      {% if messages %}
+      <div>
+          {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                  {{ message }}
+              </div>
+          {% endfor %}
+      </div>
+  {% endif %}
+    
+    <h2>Contact Us</h2>
+    <p>Feel free to contact us for any query.</p>
+      
+        <form  method="post" class="form-contact contact_form" id="contactForm" novalidate="novalidate" name="contactForm">
+        
+        {% csrf_token%}
+        
+        <input class="form-control" type="text" placeholder="Name*" name="name" value="{{ form.name.value }}"> {{ form.errors.name }}
+        
+        <input class="form-control" type="email" placeholder="Email*"name="email" value="{{ form.email.value }}"/> {{ form.errors.email }}
+       
+        <textarea class="form-control" cols="30" rows="10" placeholder="Message*" name="message"></textarea>
+        
+        <input type="submit" value="Send Message">
+      </form>
+    </div>
+  </div>

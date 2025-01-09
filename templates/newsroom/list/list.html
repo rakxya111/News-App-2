@@ -1,0 +1,26 @@
+{% extends "newsroom/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          {% include "newsroom/list/main_list.html" %} 
+          {% include "newsroom/list/pagination.html" %}
+        </div>
+      </div>
+
+      
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      {% include "newsroom/list/search_form.html" %}
+        {% include "newsroom/home/contentSection/right/popular_post.html" %}
+        {% include "newsroom/home/contentSection/right/sponser.html" %}
+        {% include "newsroom/detail/newsletter.html" %} 
+   
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

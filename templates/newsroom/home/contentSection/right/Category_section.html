@@ -1,0 +1,20 @@
+<div class="single_sidebar">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Category</a></li>
+    
+      
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="category">
+        <ul>
+          {% for category in categories %}
+          
+          <li class="cat-item"><a href="{% url 'post-by-category' category.id  %}">{{ category.name|title }}</a></li>
+
+          {% endfor %}
+        </ul>
+      </div>
+
+    
+    </div>
+  </div>

@@ -1,0 +1,75 @@
+<style>
+    /* Styling for the newsletter widget */
+.single_sidebar_widget.newsletter_widget {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.single_sidebar_widget.newsletter_widget .widget_title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.single_sidebar_widget.newsletter_widget .form-group {
+    margin-bottom: 15px;
+}
+
+.single_sidebar_widget.newsletter_widget .form-control {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.single_sidebar_widget.newsletter_widget .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.single_sidebar_widget.newsletter_widget .btn_1 {
+    background-color: #007bff;
+    color: #fff;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.single_sidebar_widget.newsletter_widget .btn_1:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+}
+
+</style>
+<aside class="single_sidebar_widget newsletter_widget">
+    <h4 class="widget_title">Newsletter</h4>
+    <div id="newsletter_side_message" ></div>
+
+    <form action="" method="post" id="newsletter_side_form">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="email" name="email" class="form-control" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
+        </div>
+        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+            type="submit">Subscribe</button>
+    </form>
+</aside>
+

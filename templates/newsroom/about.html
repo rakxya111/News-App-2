@@ -1,0 +1,120 @@
+{% extends "newsroom/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<main>
+    <!-- About US Start -->
+    <div class="about-area">
+        <div class="container">
+               
+          
+<div class="row">
+<div class="col-lg-8">
+<!-- Trending Tittle -->
+    <div class="about-right mb-90">
+        <div class="about-img">
+            <video width="770" height="370" autoplay muted controls>
+                <source src="{% static 'newsroom/assets/css/images/about.mp4' %}" type="video/mp4" >
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="section-tittle mb-30 pt-30">
+            <h1>About Us</h1>
+            <h2>NewsRoom: Your Trusted Source for News</h2>
+        </div>
+        <div class="about-prea">
+<pre>
+NewsRoom: Your Trusted Source for News
+Overview: NewsRoom is a dynamic and reliable online platform dedicated to delivering the latest news from around the globe. Whether you're interested in breaking news, in-depth analyses, or trending stories, NewsRoom provides a comprehensive and user-friendly experience to keep you informed and engaged.
+
+Key Features:
+1. Diverse News Categories
+NewsRoom covers a wide range of topics to cater to all interests, including:
+
+World News: Updates on global events, politics, and international relations.
+Business & Finance: Market trends, economic insights, and corporate developments.
+Technology: The latest innovations, product launches, and tech industry news.
+Entertainment: Celebrity gossip, movie reviews, and music industry updates.
+Sports: Live scores, game highlights, and athlete profiles.
+Lifestyle: Health tips, travel guides, and cultural stories.
+2. Breaking News Alerts
+Stay ahead of the curve with real-time breaking news alerts. NewsRoom ensures you're always updated on critical events as they unfold.
+
+3. Multimedia Content
+Videos: Watch high-quality news reports, interviews, and documentaries.
+Photo Galleries: Explore stunning images that bring stories to life.
+Podcasts: Listen to expert discussions and deep dives into current events.
+4. Customizable Experience
+Personalized Feed: Tailor your homepage to prioritize the topics you care about most.
+Notifications: Set preferences for push notifications to receive updates on your favorite categories.
+5. Interactive Features
+Comment Sections: Engage with other readers by sharing your thoughts on articles.
+Polls and Surveys: Participate in polls to voice your opinion on trending issues.
+6. Mobile-Friendly Design
+NewsRoom is optimized for both desktop and mobile devices, ensuring a seamless experience whether you're at home or on the go.
+
+Why Choose NewsRoom?
+Credibility: NewsRoom prides itself on delivering accurate, unbiased, and thoroughly vetted news.
+Speed: Be the first to know with lightning-fast updates on breaking stories.
+Accessibility: The platform is free to use, with premium options for ad-free browsing and exclusive content.
+Global Reach: NewsRoom connects you to stories from every corner of the world.
+Additional Features:
+Dark Mode: Reduce eye strain with a sleek dark mode option.
+Archive Access: Browse through past articles and reports for research or nostalgia.
+Newsletter: Subscribe to daily or weekly newsletters to get a curated selection of top stories delivered straight to your inbox.
+Target Audience:
+NewsRoom is perfect for:
+
+Busy professionals who need quick, reliable news updates.
+Students and researchers looking for credible sources.
+Enthusiasts who want to stay informed about their favorite topics.
+Future Vision:
+NewsRoom aims to integrate AI-driven recommendations, enhanced fact-checking tools, and localized news coverage to provide an even more personalized and accurate news experience.
+
+Stay informed. Stay connected. Welcome to NewsRoom.
+</pre>
+</div>
+
+<!-- Flow Socail -->
+<div class="social_link">
+    <ul class="sociallink_nav">
+      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+    </ul>
+  </div>
+    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-40">
+                            <h3>Follow Us</h3>
+                        </div>
+                        <!-- Flow Socail -->
+                        <div class="social_link">
+                            <ul class="sociallink_nav">
+                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                              <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                          </div>
+                          
+                        <!-- New Poster -->
+                        <div class="news-poster d-none d-lg-block">
+                            <img src="{% static 'newsroom/assets/css/images/xoxo1.png' %}" alt="" width="344px" height="600px"> 
+                            <img src="{% static 'newsroom/assets/css/images/xoxo.png' %}" alt="" width="344px" height="500px" style="margin-top: 30px;"> 
+                        </div>
+                    </div>
+               </div>
+        </div>
+    </div>
+    <!-- About US End -->
+</main>
+
+{% endblock content %}

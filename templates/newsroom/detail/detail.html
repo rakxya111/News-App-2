@@ -1,0 +1,27 @@
+{% extends "newsroom/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12" >
+          {% include "newsroom/detail/main_detail.html" %}
+          {% include "newsroom/detail/next_previous.html" %}
+          {% include "newsroom/detail/author.html" %}
+          {% include "newsroom/detail/comment_list.html" %}
+          {% include "newsroom/detail/comment_form.html" %}
+        </div>
+     
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12" >
+      {% include "newsroom/home/contentSection/right/popular_post.html" %}
+      {% include "newsroom/home/contentSection/right/Category_section.html" %}
+      {% include "newsroom/home/contentSection/right/sponser.html" %}
+      {% include "newsroom/detail/newsletter.html" %} 
+      
+      {% include "newsroom/home/contentSection/right/links.html" %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

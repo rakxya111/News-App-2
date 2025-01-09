@@ -1,0 +1,15 @@
+<div class="single_sidebar">
+    <h2><span>Popular Post</span></h2>
+    <ul class="spost_nav">
+      {% for popular_post in popular_posts %}
+      <li>
+        
+        <div class="media wow fadeInDown"> <a href="{% url 'post-detail' popular_post.pk %}" class="media-left"> <img alt="" src="{{ popular_post.featured_image.url }}" width="90px"> </a>
+          <div class="media-body"> <a href="{% url 'post-detail' popular_post.pk %}" class="catg_title"> {{ popular_post.title }}</a> </div>
+        </div>
+        
+      </li>
+      {% endfor %}
+    
+    </ul>
+  </div>

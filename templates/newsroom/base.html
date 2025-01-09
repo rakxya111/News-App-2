@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>NewsFeed</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'newsroom/assets/css/images/favicon.ico' %}">
+
+<link rel="stylesheet"  href=" {% static 'newsroom/assets/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/font-awesome.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/font.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/li-scroller.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/jquery.fancybox.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/theme.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'newsroom/assets/css/style.css' %}">
+
+
+</head>
+<body>
+<!-- <div id="preloader">
+  <div id="status">&nbsp;</div>
+</div> -->
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+
+{% include "newsroom/header.html" %} 
+{% include "newsroom/navbar.html" %} 
+{% include "newsroom/newsSection.html" %} 
+
+{% block content %}
+{% endblock content %}
+
+{% include "newsroom/footer.html" %}
+
+</div>
+<script src="{% static 'newsroom/assets/js/jquery.min.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/wow.min.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/bootstrap.min.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/slick.min.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/jquery.li-scroller.1.0.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/jquery.newsTicker.min.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/jquery.fancybox.pack.js' %}"></script> 
+<script src="{% static 'newsroom/assets/js/custom.js' %}"></script>
+<script>
+    $("#newsletter_side_form").submit(function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        let serializedData = $(this).serialize(); // Serialize the form data
+  
+        $.ajax({
+            type: "POST",
+            url: "{% url 'newsletter' %}", // Your Django view URL
+            data: serializedData,
+            success: function (response) {
+                // Show success message
+                const successMessage = `
+                   <div class="alert alert-warning alert-dismissible" role="alert" style="background-color: #28a745; color:#fff;">
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>${response.message}</strong> 
+                  </div>
+                `;
+                $("#newsletter_side_message").html(successMessage).fadeIn();
+  
+                // Clear the email field after 3 seconds
+                setTimeout(function () {
+                    $("#newsletter_side_form input[name='email']").val('');
+                }, 3000);
+  
+                // Remove the success message after 3 seconds
+                setTimeout(function () {
+                    $("#newsletter_side_message").fadeOut();
+                }, 3000);
+            },
+            error: function (response) {
+                // Show error message
+                const errorMessage = `
+                   <div class="alert alert-warning alert-dismissible" role="alert" style="background-color: #dc3545; color:#fff;">
+                   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <strong>${response.responseJSON.message}</strong> 
+                   </div>
+                `;
+                $("#newsletter_side_message").html(errorMessage).fadeIn();
+  
+                // Remove the error message after 3 seconds
+                setTimeout(function () {
+                    $("#newsletter_side_message").fadeOut();
+                }, 3000);
+                  // Clear the email field after 3 seconds
+                  setTimeout(function () {
+                    $("#newsletter_side_form input[name='email']").val('');
+                }, 3000);
+            }
+        });
+    });
+  </script>
+  
+  
+
+
+</body>
+</html>

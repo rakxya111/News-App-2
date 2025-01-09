@@ -1,0 +1,53 @@
+<div class="single_page">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      
+      {% for category in categories2 %}
+      
+      <li><a href="{% url 'post-by-category' category.pk %}">{{ category.name }}</a></li>
+      
+      {% endfor %}
+      
+    </ol>
+    <h1>{{ post.title }}</h1>
+    <div class="post_commentbox"> 
+      <a href="#"><i class="fa fa-tags"></i>{{ post.tags.all |join:", " }}</a> 
+      <a href="#"><i class="fa fa-user"></i>{{ post.author.username|lower }}</a> 
+      <a href="#"><i class="fa fa-paste"></i>{{ post.category.name|title }}</a> 
+      <a href="#"><i class="fa fa-eye"></i>{{ post.views_count }}</a> 
+      <a href="#"><i class="fa fa-comments"></i> {{ post.comment_set.count }}</a> 
+      
+      </div>
+    
+    <div class="single_page_content"> 
+      <img class="img-center" src="{{ post.featured_image.url }}" alt="">
+      <p> {{ post.content|linebreaksbr }} </p>
+    
+    </div>
+   
+    <div class="social_link">
+      <ul class="sociallink_nav">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+      </ul>
+    </div>
+    
+    
+<div class="related_post">
+      <h2>Related Post <i class="fa fa-thumbs-o-up"></i></h2>
+      <ul class="spost_nav wow fadeInDown animated">
+        
+        {% for post in related_posts %}
+        <li>
+          <div class="media"> <a class="media-left" href="{% url 'post-detail' post.pk %}"> <img src="{{ post.featured_image.url }}" alt=""> </a>
+            <div class="media-body"> <a class="catg_title" href="{% url 'post-detail' post.pk %}">{{ post.title|truncatewords:15 }}</a> </div>
+          </div>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>

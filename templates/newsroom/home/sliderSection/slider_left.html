@@ -1,0 +1,17 @@
+
+<div class="col-lg-8 col-md-8 col-sm-8">
+    <div class="slick_slider">
+        
+        {% for post in featured_posts %}
+        
+        <div class="single_iteam"> <a href="{% url 'post-detail' post.pk %}"> <img src="{{ post.featured_image.url }}" alt="{{ post.title }}"></a>
+            <div class="slider_article">
+          <h2><a class="slider_tittle" href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h2>
+          <p>{{ post.content|truncatewords:20 }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+
+    </div>
+  </div>

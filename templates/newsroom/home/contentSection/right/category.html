@@ -1,0 +1,14 @@
+<div class="single_sidebar wow fadeInDown">
+    <h2><span>Category Archive</span></h2>
+    <select class="catgArchive">
+      <option>Select Category</option>
+    
+      {% for category in categories %}
+      
+      <a href="{% url 'post-by-category' category.pk %}">
+      <option>{{ category.name }}</option>
+      </a> 
+    
+    {% endfor %}
+   </select>
+  </div>
